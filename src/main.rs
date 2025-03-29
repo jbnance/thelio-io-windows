@@ -87,7 +87,8 @@ fn driver() -> io::Result<()> {
 
     let curve = match (sys_vendor.as_str(), product_version.as_str()) {
         ("System76", "thelio-mira-r1" | "thelio-mira-r2" | "thelio-mira-r3"
-                   | "thelio-mira-b1" | "thelio-mira-b2" | "thelio-mira-b3" | "thelio-mira-b4") => {
+                   | "thelio-mira-b1" | "thelio-mira-b2" | "thelio-mira-b3" | "thelio-mira-b4"
+                   | "thelio-r5") => {
             debug!("{} {} uses standard fan curve", sys_vendor, product_version);
             FanCurve::standard()
         },
