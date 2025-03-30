@@ -119,10 +119,8 @@ fn driver() -> io::Result<()> {
     for port_info in serialport::available_ports()? {
         match port_info.port_type {
             serialport::SerialPortType::UsbPort(usb_info) => {
-                if (
-                    (usb_info.vid == 0x1209 && usb_info.pid == 0x1776)
-                    || (usb_info.vid == 0x3384 && usb_info.pid == 0x000b)
-                ) {
+                if (usb_info.vid == 0x1209 && usb_info.pid == 0x1776)
+                    || (usb_info.vid == 0x3384 && usb_info.pid == 0x000b) {
                     debug!("Thelio Io at {}", port_info.port_name);
 
                     let port = serialport::new(port_info.port_name, 115200)
